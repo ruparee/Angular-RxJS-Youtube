@@ -18,7 +18,7 @@ wss.on('connection', (ws) => {
     });
     // send immediately a feedback to the incoming connection
     const producer = Rx.Observable
-        .from(['marcus4guyen', 'Dollyns', 'jackmercy'])
+        .from(['ruparee', 'marcus4guyen', 'Dollyns', 'jackmercy', 's'])
         .concatMap(val => Rx.Observable.of(val).delay(5000))
         .repeat();
     producer.subscribe(val => {
@@ -33,3 +33,24 @@ server.listen(process.env.PORT || 8999, () => {
 // .\node_modules\.bin\tsc
 // node .\dist\server\server.js
 //# sourceMappingURL=server.js.map
+
+/*
+mkdir websocket-node-express
+cd websocket-node-express
+npm init
+// add the details of your project
+npm i ws express --save
+// install the necessary types (and typescript)...
+npm i typescript @types/ws @types/express -D
+// ...optionally install typescript globally (tnx _Maxxx_)
+npm i -g typescript
+
+// please compile my code
+./node_modules/.bin/tsc    // or simply tsc (if installed globally)
+
+// then run the server
+node ./dist/server/server.js
+
+
+
+*/
